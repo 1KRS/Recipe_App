@@ -1,0 +1,143 @@
+:root {
+  --primary: #00ac3f;
+  --secondary: #3a82ee;
+  --done: var(--primary);
+  --todo: var(--secondary);
+  --light:#eee;
+  --grey: #888;
+  --dark:#313154;
+  --crimson:#eb201c;
+
+  --shadow: 0 1px 3px rgba(0,0,0, 0.1);
+
+  --todo-glow: 0px 0px 4px rgb(58, 130, 238, 0.75);
+  --done-glow: 0px 0px 4px rgba(0, 172, 63, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  list-style-type: none;
+}
+
+main {
+  text-align: center;
+  padding: 1rem;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 20px auto 0px;
+  border: 1px solid var(--grey);
+  border-radius: 20px;
+}
+
+ul {
+  margin: 0.3rem auto;
+}
+li {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+img {
+  border-radius: 1rem;
+  margin: 0.25rem auto;
+}
+
+a {
+  font-size: 1.05rem;
+}
+
+a:link { 
+  text-decoration: none;
+  color: var(--primary);
+}
+
+
+a:visited { 
+  text-decoration: none;
+  color: var(--secondary);
+ }
+
+
+a:hover { 
+  text-decoration: none;
+  color: var(--secondary);
+ }
+
+
+a:active { text-decoration: none; }
+
+input:not([type="radio"]):not([type="checkbox"]) {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: initial;
+}
+
+.section {
+  display: block;
+  margin: 1rem 0 2rem;
+  padding: 0 1.5rem;
+}
+
+.section--recipiesForm input[type="number"] {
+  display: block;
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+  color: var(--dark);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nutrients {
+  border: 1px solid green;
+  border-radius: 15px;
+  margin: 1.2rem;
+}
+
+.section--recipesList {
+  background-color: #fff;
+  /* padding: 1rem; */
+  border-radius: 0.5rem;
+  /* box-shadow: var(--shadow); */
+  margin-bottom: 1rem;
+  min-height: 5.4rem;
+  /* border: 1px solid green; */
+}
+
+
+.recipe {
+  margin: 1rem 0;
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+  box-shadow: var(--primary-glow);
+}
+
+.button-recipes {
+  display: block;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background-color: var(--done);
+  border-radius: 0.5rem;
+  box-shadow: var(--done-glow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border: none;
+}
+
+.article--h1-title {
+  margin: 0.4rem 0 0.8rem;
+}
+
+.link {
+  margin: 0.5rem auto 0.5rem;
+}
