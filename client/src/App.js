@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import './App.css';
 import RecipesList from './components/RecipesList';
+import './App.css';
 
 function App() {
 
@@ -11,7 +11,13 @@ function App() {
     setCalories(e.target.value);
   }
 
+  useEffect(() => {
+    console.log(`api/${input}`)
+    getVideos(`api/${input}`);
+  }, [input]);
+
   const getRecipes = () => {
+    // fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=b841456a214f46eeb5059ede37a35a59&timeFrame=day&targetCalories=${calories}`)
     fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=b841456a214f46eeb5059ede37a35a59&timeFrame=day&targetCalories=${calories}`)
     .then((res) => res.json())
     .then((data) => {
