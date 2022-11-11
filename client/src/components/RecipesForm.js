@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
+// import React, {useNavigate} from 'react-router-dom';
+
 import RecipesList from './RecipesList';
 
 function App() {
 
-  const [calories, setCalories] = useState(1500);
+  const [calories, setCalories] = useState('');
   const [recipes, setRecipes] = useState(null);
   const inputRef = useRef(null);
 
@@ -18,9 +20,17 @@ function App() {
   })
 
   const handleSubmit = e => {
+    if (e.target.value === '') {
+      setCalories(inputRef.current.value);
+    }
     e.preventDefault()
-    setCalories(e.target.value);
+    setCalories(inputRef.current.value);
   }
+
+  // const handleSubmitTwo = e => {
+  //   e.preventDefault()
+  //   setCalories(e.target.value);
+  // }
 
   const getRecipes = (cal) => {
      fetch(cal)
@@ -32,9 +42,9 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('Θερμίδες', `api/${calories}`)
+    console.log('Θερμίδες', `/api/${calories}`)
     // console.log('Θερμίδες', fakeRecipes)
-    getRecipes(`api/${calories}`);
+     getRecipes(`/api/${calories}`);
     // getRecipes(fakeRecipes);
   }, [calories]);
 
@@ -55,14 +65,15 @@ function App() {
 
   return (
     <>
-      <form className="section--recipiesForm" onSubmit={handleSubmit}>
+      <h1 className="h1--title">Simple Daily Meal Planner</h1>
+      <form className="section--recipesForm" onSubmit={handleSubmit}>
         <input
           type="number"
-          placeholder={"Write the calories you want. (e.g. 1500)"}
-          // onChange={(e) => setCalories(e.target.value)}
+          onSubmit={handleSubmit}
+          placeholder={"Write the daily calories you want"}
           ref={inputRef}
           required />
-        <button className="button-recipes" onClick={handleSubmit} >Show me the food</button>
+        <button className="button-recipes" onClick={handleSubmit} >Show me the food already</button>
       </form>
       {recipes && <RecipesList recipes={recipes} />}
     </>

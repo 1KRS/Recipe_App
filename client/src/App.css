@@ -1,17 +1,17 @@
 :root {
   --primary: #00ac3f;
   --secondary: #3a82ee;
-  --done: var(--primary);
-  --todo: var(--secondary);
+  --link: rgba(255, 255, 0, 0.656);
+  --hover: rgba(64, 255, 0, 0.656);
   --light:#eee;
   --grey: #888;
   --dark:#313154;
   --crimson:#eb201c;
 
-  --shadow: 0 1px 3px rgba(0,0,0, 0.1);
+  --shadow: 0 1px 3px rgba(0,0,0, 0.3);
 
-  --todo-glow: 0px 0px 4px rgb(58, 130, 238, 0.75);
-  --done-glow: 0px 0px 4px rgba(0, 172, 63, 0.75);
+  --secondary-glow: 0px 0px 4px rgb(58, 130, 238, 0.75);
+  --primary-glow: 0px 0px 4px rgba(0, 172, 63, 0.75);
 }
 
 * {
@@ -27,21 +27,24 @@ main {
   padding: 1rem;
   max-width: 600px;
   min-width: 300px;
-  margin: 20px auto 0px;
+  margin: 20px auto 20px;
   border: 1px solid var(--grey);
   border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0, 0.3);
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 ul {
   margin: 0.3rem auto;
 }
+
 li {
   display: inline-block;
   margin: 0 8px;
 }
 
 img {
-  border-radius: 1rem;
+  border-radius: 15px;
   margin: 0.25rem auto;
 }
 
@@ -51,23 +54,24 @@ a {
 
 a:link { 
   text-decoration: none;
-  color: var(--primary);
+  color: var(--link);
 }
 
 
 a:visited { 
   text-decoration: none;
-  color: var(--secondary);
+  color: var(--hover);
  }
 
 
 a:hover { 
   text-decoration: none;
-  color: var(--secondary);
+  color: var(--hover);
  }
 
-
-a:active { text-decoration: none; }
+a:active { 
+  text-decoration: none; 
+}
 
 input:not([type="radio"]):not([type="checkbox"]) {
   appearance: none;
@@ -77,35 +81,46 @@ input:not([type="radio"]):not([type="checkbox"]) {
   cursor: initial;
 }
 
+.h1--title {
+  font-size: 25px;
+  margin: 0.5rem auto 1.5rem;
+}
+
 .section {
   display: block;
   margin: 1rem 0 2rem;
   padding: 0 1.5rem;
 }
 
-.section--recipiesForm input[type="number"] {
+.section--recipesForm input[type="number"] {
   display: block;
   width: 100%;
   font-size: 1.3rem;
   padding: 1rem 1.5rem;
   color: var(--dark);
   background-color: #fff;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   box-shadow: var(--shadow);
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
+.section--recipesForm input[type="number"]::-webkit-input-placeholder {
+  text-align: center;
+}
+
 .nutrients {
-  border: 1px solid green;
+  border: 1px solid var(--primary);
   border-radius: 15px;
   margin: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0, 0.3);
+  background-color: rgba(255, 255, 255, 0.253);
 }
 
 .section--recipesList {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
   /* padding: 1rem; */
-  border-radius: 0.5rem;
+  border-radius: 20px;
   /* box-shadow: var(--shadow); */
   margin-bottom: 1rem;
   min-height: 5.4rem;
@@ -118,6 +133,7 @@ input:not([type="radio"]):not([type="checkbox"]) {
   border-radius: 20px;
   border: 1px solid var(--primary);
   box-shadow: var(--primary-glow);
+  background-color: rgba(255, 255, 255, 0.362);
 }
 
 .button-recipes {
@@ -126,16 +142,25 @@ input:not([type="radio"]):not([type="checkbox"]) {
   font-size: 1.4rem;
   padding: 1rem 1.5rem;
   color: #fff;
-  background-color: var(--done);
-  border-radius: 0.5rem;
-  box-shadow: var(--done-glow);
+  background-color: var(--primary);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0,0,0, 0.6);
   cursor: pointer;
   transition: 0.2s ease-in-out;
   border: none;
 }
 
+.button-recipes:active {
+  box-shadow: 0 0px 0px rgba(0,0,0, 0);
+}
+
 .article--h1-title {
   margin: 0.4rem 0 0.8rem;
+}
+
+.img {
+  display: flex;
+  margin: 0;
 }
 
 .link {
